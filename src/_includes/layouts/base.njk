@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% if title %}{{ title }} · {% endif %}HN 中文摘要</title>
 {% if description %}<meta name="description" content="{{ description }}">{% endif %}
-<link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
+<link rel="stylesheet" href="{{ '/assets/style.css' | url }}?v=20260818-v2">
 <link rel="alternate" type="application/rss+xml" title="HN 中文摘要" href="{{ '/feed.xml' | url }}">
 </head>
 <body>
@@ -22,6 +22,6 @@
   {% if hasToc %}<aside class="toc" id="toc" hidden><p class="toc-title">本页目录</p><nav class="toc-links"></nav></aside>{% endif %}
 </div>
 <footer class="site-footer"><div class="site-footer-inner"><span>内容每日自动生成，Markdown 存档于 content/daily/</span><a href="{{ '/about/' | url }}">关于</a><a href="{{ '/feed.xml' | url }}">RSS</a></div></footer>
-{% if hasToc %}<script src="{{ '/assets/toc.js' | url }}" defer></script>{% endif %}
+{% if hasToc %}<script src="{{ '/assets/toc.js' | url }}?v=20260818-v2" defer></script>{% endif %}
 </body>
 </html>
