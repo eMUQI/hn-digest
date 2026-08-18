@@ -74,19 +74,28 @@ a.muted { color: var(--muted); }
 }
 .prose h3 { margin: 36px 0 0; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 17px; font-weight: 700; scroll-margin-top: 78px; }
 
-.prose ol { list-style: none; margin: 24px 0 0; padding: 0; counter-reset: item; }
-.prose ol > li {
+/* Ordinary ordered lists, such as the three-item verification list. */
+.prose ol:not(.digest-list) { margin: 14px 0 24px; padding-left: 1.5rem; color: var(--body); }
+.prose ol:not(.digest-list) > li { margin: 4px 0; padding-left: 4px; font-size: 15px; }
+
+/* The semantic Top 30 list. */
+.prose .digest-list { list-style: none; margin: 24px 0 0; padding: 0; counter-reset: item; }
+.prose .digest-list > .digest-item {
   counter-increment: item; position: relative;
   padding: 26px 0 26px 42px; border-bottom: 1px solid var(--line-soft);
   font-size: 15px; color: var(--body); text-wrap: pretty;
 }
-.prose ol > li::before {
+.prose .digest-list > .digest-item::before {
   content: counter(item, decimal-leading-zero);
   position: absolute; left: 0; top: 26px; font-size: 13px; color: #bdbdbd;
 }
-.prose ol > li strong { display: inline-block; margin-bottom: 4px; font-size: 18px; line-height: 1.5; font-weight: 700; letter-spacing: -.01em; color: var(--text); }
-.prose ol > li a { font-size: 13px; color: var(--muted); }
-.prose ol > li a:hover { color: var(--link); }
+.prose .digest-item-title {
+  display: inline-block; margin-bottom: 4px; font-size: 18px; line-height: 1.5;
+  font-weight: 700; letter-spacing: -.01em; color: var(--text);
+}
+.prose .digest-list > .digest-item a { font-size: 13px; color: var(--muted); }
+.prose .digest-list > .digest-item a:hover { color: var(--link); }
+.prose .digest-list > .digest-item strong:not(.digest-item-title) { font-size: inherit; line-height: inherit; color: inherit; }
 
 .prose ul { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
 .prose ul > li { font-size: 15px; color: var(--body); padding-left: 14px; border-left: 1px solid var(--line); text-wrap: pretty; }
