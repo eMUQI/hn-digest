@@ -1,11 +1,22 @@
 ---
 layout: layouts/base.njk
+hasToc: true
 ---
+{% set prev = collections.digest | getPreviousCollectionItem %}
+{% set next = collections.digest | getNextCollectionItem %}
+
 <article class="digest">
-  <header class="digest-header">
-    <p class="eyebrow">Hacker News 中文早报</p>
-    <h1>{{ title }}</h1>
-    <p class="digest-date">{{ date | dateReadable }}</p>
-  </header>
-  <div class="prose">{{ content | safe }}</div>
+  <p class="digest-date">{{ date | dateCN }}</p>
+  <h1>{{ title }}</h1>
+  {% if description %}<p class="digest-lede">{{ description }}</p>{% endif %}
+
+  <div class="prose">
+    {{ content | safe }}
+  </div>
 </article>
+
+<nav class="pager">
+  {% if prev %}<a href="{{ prev.url | url }}">← 前一期</a>{% else %}<span></span>{% endif %}
+  <a class="muted" href="{{ '/archive/' | url }}">全部归档</a>
+  {% if next %}<a href="{{ next.url | url }}">后一期 →</a>{% else %}<span></span>{% endif %}
+</nav>
