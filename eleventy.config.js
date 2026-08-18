@@ -1,9 +1,31 @@
 import markdownIt from "markdown-it";
 
+function enhanceDigestHtml(html) {
+  let orderedListIndex = 0;
+
+  return html.replace(/<ol>([\s\S]*?)<\/ol>/g, (match, inner) => {
+    orderedListIndex += 1;
+    if (orderedListIndex !== 2) return match;
+
+    const enhancedItems = inner.replace(/<li>([\s\S]*?)<\/li>/g, (liMatch, liInner) => {
+      let titleTagged = false;
+      const enhancedInner = liInner.replace(/<strong>([\s\S]*?)<\/strong>/, (strongMatch, strongInner) => {
+        if (titleTagged) return strongMatch;
+        titleTagged = true;
+        return `<strong class="digest-item-title">${strongInner}</strong>`;
+      });
+      return `<li class="digest-item">${enhancedInner}</li>`;
+    });
+
+    return `<ol class="digest-list">${enhancedItems}</ol>`;
+  });
+}
+
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
 
   eleventyConfig.setLibrary("md", markdownIt({ html: true, linkify: true, typographer: false, breaks: true }));
+  eleventyConfig.addFilter("enhanceDigest", enhanceDigestHtml);
 
   const utc = (value) => new Date(value);
   eleventyConfig.addFilter("dateISO", (value) => utc(value).toISOString().slice(0, 10));
