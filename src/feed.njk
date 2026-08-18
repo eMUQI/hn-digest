@@ -1,0 +1,34 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+metadata:
+  title: HN 中文摘要
+  url: https://emuqi.github.io/hn-digest/
+  description: 每日 Hacker News 官方首页前 30 条的中文摘要与分类整理。
+---
+{%- set posts = collections.digest | newestFirst -%}
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>{{ metadata.title }}</title>
+    <link>{{ metadata.url }}</link>
+    <atom:link href="{{ metadata.url }}feed.xml" rel="self" type="application/rss+xml" />
+    <description>{{ metadata.description }}</description>
+    <language>zh-CN</language>
+    {%- if posts | length %}
+    <lastBuildDate>{{ posts[0].date | dateRFC }}</lastBuildDate>
+    {%- endif %}
+    {%- for post in posts %}
+    <item>
+      <title>{{ post.data.title }}（{{ post.date | dateISO }}）</title>
+      <link>{{ metadata.url }}{{ post.url | replace("/hn-digest/", "") }}</link>
+      <guid isPermaLink="false">{{ post.url }}</guid>
+      <pubDate>{{ post.date | dateRFC }}</pubDate>
+      {%- if post.data.description %}
+      <description>{{ post.data.description }}</description>
+      {%- endif %}
+      <content:encoded><![CDATA[{{ post.templateContent | safe }}]]></content:encoded>
+    </item>
+    {%- endfor %}
+  </channel>
+</rss>
