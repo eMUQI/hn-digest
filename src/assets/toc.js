@@ -1,37 +1,54 @@
-// Builds the right-hand table of contents from the rendered digest headings.
+// Builds the right-hand table of contents from the enhanced digest structure.
 (function () {
-  var toc = document.getElementById("toc");
-  var prose = document.querySelector(".prose");
+  var toc = document.getElementById('toc');
+  var prose = document.querySelector('.prose');
   if (!toc || !prose) return;
 
-  var links = toc.querySelector(".toc-links");
-  var slug = function (text, i) {
-    return "s-" + i + "-" + text.trim().toLowerCase().replace(/\s+/g, "-").replace(/[^\w\u4e00-\u9fa5-]/g, "").slice(0, 40);
-  };
+  var links = toc.querySelector('.toc-links');
+  if (!links) return;
 
-  var headings = prose.querySelectorAll("h2, h3");
-  if (!headings.length) return;
+  function labelForHeading(h) {
+    var clone = h.cloneNode(true);
+    Array.prototype.forEach.call(clone.querySelectorAll('.category-count'), function (n) { n.remove(); });
+    return clone.textContent.trim();
+  }
 
-  Array.prototype.forEach.call(headings, function (h, i) {
-    if (!h.id) h.id = slug(h.textContent, i);
-    var a = document.createElement("a");
-    a.href = "#" + h.id;
-    a.textContent = h.textContent;
-    a.className = h.tagName === "H3" ? "toc-sub" : "";
+  function addLink(target, text, sub) {
+    if (!target || !target.id) return null;
+    var a = document.createElement('a');
+    a.href = '#' + target.id;
+    a.textContent = text;
+    if (sub) a.className = 'toc-sub';
     links.appendChild(a);
+    return a;
+  }
+
+  var observed = [];
+  var list = document.getElementById('list');
+  if (list) {
+    addLink(list, '榜单 30 条', false);
+    observed.push(list);
+  }
+
+  var headings = prose.querySelectorAll('h2, h3');
+  Array.prototype.forEach.call(headings, function (h, i) {
+    if (!h.id) h.id = 's-' + i;
+    addLink(h, labelForHeading(h), h.tagName === 'H3');
+    observed.push(h);
   });
 
+  if (!links.children.length) return;
   toc.hidden = false;
 
   var current = null;
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (!entry.isIntersecting) return;
-      if (current) current.classList.remove("active");
+      if (current) current.classList.remove('active');
       current = links.querySelector('a[href="#' + entry.target.id + '"]');
-      if (current) current.classList.add("active");
+      if (current) current.classList.add('active');
     });
-  }, { rootMargin: "-80px 0px -70% 0px" });
+  }, { rootMargin: '-80px 0px -70% 0px' });
 
-  Array.prototype.forEach.call(headings, function (h) { observer.observe(h); });
+  observed.forEach(function (node) { observer.observe(node); });
 })();

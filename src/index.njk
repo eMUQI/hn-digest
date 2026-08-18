@@ -9,10 +9,10 @@ eleventyExcludeFromCollections: true
 <article class="digest">
   <p class="digest-date">{{ latest.date | dateCN }}</p>
   <h1>{{ latest.data.title }}</h1>
-  {% if latest.data.description %}<p class="digest-lede">{{ latest.data.description }}</p>{% endif %}
+  <p class="digest-lede">共 30 条，含中文摘要、原文与讨论链接</p>
 
   <div class="prose">
-    {{ latest.templateContent | safe }}
+    {{ latest.templateContent | enhanceDigest | safe }}
   </div>
 </article>
 

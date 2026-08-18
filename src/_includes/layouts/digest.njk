@@ -8,7 +8,7 @@ hasToc: true
 <article class="digest">
   <p class="digest-date">{{ date | dateCN }}</p>
   <h1>{{ title }}</h1>
-  {% if description %}<p class="digest-lede">{{ description }}</p>{% endif %}
+  <p class="digest-lede">共 30 条，含中文摘要、原文与讨论链接</p>
 
   <div class="prose">
     {{ content | enhanceDigest | safe }}
