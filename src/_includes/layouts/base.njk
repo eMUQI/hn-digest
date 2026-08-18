@@ -1,24 +1,27 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <title>{{ title }}{% if title != "Hacker News 中文早报" %} · Hacker News 中文早报{% endif %}</title>
-  {% if description %}<meta name="description" content="{{ description }}">{% endif %}
-  <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if title %}{{ title }} · {% endif %}HN 中文摘要</title>
+{% if description %}<meta name="description" content="{{ description }}">{% endif %}
+<link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
+<link rel="alternate" type="application/rss+xml" title="HN 中文摘要" href="{{ '/feed.xml' | url }}">
 </head>
 <body>
-  <header class="site-header">
-    <div class="shell header-inner">
-      <a class="brand" href="{{ '/' | url }}">HN 中文早报</a>
-      <nav aria-label="主导航">
-        <a href="{{ '/' | url }}">最新</a>
-        <a href="{{ '/archive/' | url }}">归档</a>
-      </nav>
-    </div>
-  </header>
-  <main class="shell">{{ content | safe }}</main>
-  <footer class="site-footer shell"><p>每日整理 Hacker News 热门内容，保留原文与 HN 讨论入口。</p></footer>
+<header class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="{{ '/' | url }}"><span class="brand-mark">HN</span><span class="brand-name">HN 中文摘要</span></a>
+    <nav class="navbar-links">
+      <a href="{{ '/' | url }}">今日</a><a href="{{ '/archive/' | url }}">归档</a><a href="{{ '/about/' | url }}">关于</a><a href="{{ '/feed.xml' | url }}" class="muted">RSS</a><a href="https://github.com/eMUQI/hn-digest" class="muted">GitHub</a>
+    </nav>
+  </div>
+</header>
+<div class="shell{% if not hasToc %} shell-single{% endif %}">
+  <main>{{ content | safe }}</main>
+  {% if hasToc %}<aside class="toc" id="toc" hidden><p class="toc-title">本页目录</p><nav class="toc-links"></nav></aside>{% endif %}
+</div>
+<footer class="site-footer"><div class="site-footer-inner"><span>内容每日自动生成，Markdown 存档于 content/daily/</span><a href="{{ '/about/' | url }}">关于</a><a href="{{ '/feed.xml' | url }}">RSS</a></div></footer>
+{% if hasToc %}<script src="{{ '/assets/toc.js' | url }}" defer></script>{% endif %}
 </body>
 </html>
