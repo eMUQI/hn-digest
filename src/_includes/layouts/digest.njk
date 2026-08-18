@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+---
+<article class="digest">
+  <header class="digest-header">
+    <p class="eyebrow">Hacker News 中文早报</p>
+    <h1>{{ title }}</h1>
+    <p class="digest-date">{{ date | dateReadable }}</p>
+  </header>
+  <div class="prose">{{ content | safe }}</div>
+</article>
