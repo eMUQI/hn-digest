@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+title: 关于
+permalink: /about/index.html
+eleventyExcludeFromCollections: true
+---
+<article class="page">
+  <h1>关于</h1>
+
+  <p>本站每日于北京时间 09:00 自动读取 Hacker News 官方首页前 30 条内容，生成中文摘要，并附原文链接与 Hacker News 讨论链接，同时按预设的关注方向进行分类整理。内容以 Markdown 格式存入代码仓库，经 Eleventy 构建后发布至 GitHub Pages。</p>
+
+  <ul class="facts">
+    <li><span>更新时间</span><span>每日 09:00（北京时间）</span></li>
+    <li><span>内容来源</span><span>Hacker News 官方首页前 30 条</span></li>
+    <li><span>内容存档</span><span>content/daily/YYYY/MM/DD.md</span></li>
+    <li><span>构建发布</span><span>Eleventy 与 GitHub Pages</span></li>
+  </ul>
+
+  <h2>订阅</h2>
+  <p>本站提供全文 RSS，每期更新包含完整摘要及相关链接，可直接在阅读器中阅读：<a href="{{ '/feed.xml' | url }}">/feed.xml</a></p>
+
+  <h2>分类设置</h2>
+  <p>分类并未固定在页面模板中，而是依据每期内容的二级标题动态生成，标题文字直接取自内容本身。调整关注方向、新增或删除分类时，仅需修改内容生成任务的设定，无需改动站点代码。</p>
+
+  <h2>编辑说明</h2>
+  <ul class="notes">
+    <li>排名与标题均以当次官方首页为准，不作二次排序。</li>
+    <li>Ask HN、Launch HN 等条目本身即为讨论页，其原文链接指向 Hacker News 页面。</li>
+    <li>若遇抓取失败、付费墙或请求受限，将在当期开头如实说明，不对内容作推测。</li>
+    <li>当日某一分类若无相关条目，将明确标注为无相关条目。</li>
+    <li>当条目数不足 30 条时，按实际数量呈现，并在标题下方标明实际条数。</li>
+  </ul>
+</article>
