@@ -11,7 +11,7 @@ hasToc: true
   {% if description %}<p class="digest-lede">{{ description }}</p>{% endif %}
 
   <div class="prose">
-    {{ content | safe }}
+    {{ content | enhanceDigest | safe }}
   </div>
 </article>
 
