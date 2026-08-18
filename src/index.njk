@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+hasToc: true
+permalink: /index.html
+eleventyExcludeFromCollections: true
+---
+{% set latest = collections.digest | last %}
+{% if latest %}
+<article class="digest">
+  <p class="digest-date">{{ latest.date | dateCN }}</p>
+  <h1>{{ latest.data.title }}</h1>
+  {% if latest.data.description %}<p class="digest-lede">{{ latest.data.description }}</p>{% endif %}
+
+  <div class="prose">
+    {{ latest.templateContent | safe }}
+  </div>
+</article>
+
+<nav class="pager">
+  <a href="{{ latest.url | url }}">本期固定链接</a>
+  <a class="muted" href="{{ '/archive/' | url }}">全部归档</a>
+  <a href="{{ '/feed.xml' | url }}">RSS</a>
+</nav>
+{% else %}
+<article class="digest">
+  <h1>还没有内容</h1>
+  <p class="digest-lede">第一期生成后，这里会显示当天的 Hacker News 中文摘要。</p>
+</article>
+{% endif %}
