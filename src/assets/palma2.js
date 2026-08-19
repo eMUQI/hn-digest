@@ -1,4 +1,4 @@
-import { classifyTap, pageTurnDistance, resolveMode, shouldIgnoreTarget } from './palma2-core.js';
+import { classifyTap, pageTurnDistance, resolveMode, shouldIgnoreTarget } from './palma2-core.js?v=20260819-v2';
 
 (function () {
   const STORAGE_KEY = 'hn-digest-display-mode';
