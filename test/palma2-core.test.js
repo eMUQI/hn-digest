@@ -43,3 +43,18 @@ test('plain content can use tap navigation', async () => {
   const { shouldIgnoreTarget } = await loadCore();
   assert.equal(shouldIgnoreTarget({ closest: () => null }), false);
 });
+
+test('explicit Palma 2 query enables the mode', async () => {
+  const { resolveMode } = await loadCore();
+  assert.equal(resolveMode({ search: '?mode=palma2', stored: 'standard' }), true);
+});
+
+test('explicit standard query disables the mode', async () => {
+  const { resolveMode } = await loadCore();
+  assert.equal(resolveMode({ search: '?mode=standard', stored: 'palma2' }), false);
+});
+
+test('stored Palma 2 preference is restored without a query override', async () => {
+  const { resolveMode } = await loadCore();
+  assert.equal(resolveMode({ search: '', stored: 'palma2' }), true);
+});
