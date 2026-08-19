@@ -1,0 +1,45 @@
+/* Layout corrections from the footer-alignment design handoff. */
+
+.pager {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  min-height: 44px;
+}
+.pager > :first-child { justify-self: start; }
+.pager > :last-child { justify-self: end; }
+.pager a { text-decoration: none; }
+.pager a:hover { text-decoration: underline; text-decoration-color: var(--link); }
+
+.site-footer { margin-top: 0; border-top: 1px solid var(--line); }
+.site-footer-inner {
+  width: calc(100% - 40px);
+  max-width: 1064px;
+  margin-inline: auto;
+  padding: 22px 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer-links { display: flex; align-items: baseline; gap: 18px; flex: none; }
+.site-footer-inner a { color: var(--muted); text-decoration: none; }
+.site-footer-inner a:hover { color: var(--link); text-decoration: underline; }
+
+.prose .digest-list > .digest-item:last-child { border-bottom: 0; padding-bottom: 8px; }
+.prose > :last-child { margin-bottom: 0; }
+.shell { padding-bottom: 56px; }
+
+/* The layout already renders the page title; hide the duplicate H1 from generated Markdown. */
+.prose > h1:first-child { display: none; }
+
+@media (max-width: 640px) {
+  .site-footer-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
