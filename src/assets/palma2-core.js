@@ -7,9 +7,14 @@ export function classifyTap({ startX, endX, startY, endY, width, edgeRatio = 0.2
   const dy = Math.abs(endY - startY);
   if (dx > maxMovement || dy > maxMovement) return null;
 
-  if (startX <= width * edgeRatio) return 'previous';
-  if (startX >= width * (1 - edgeRatio)) return 'next';
+  if (startX <= width * edgeRatio) return 'screen-up';
+  if (startX >= width * (1 - edgeRatio)) return 'screen-down';
   return null;
+}
+
+export function pageTurnDistance(viewportHeight, ratio = 0.88) {
+  if (!Number.isFinite(viewportHeight) || viewportHeight <= 0) return 0;
+  return Math.round(viewportHeight * ratio);
 }
 
 export function shouldIgnoreTarget(target) {
