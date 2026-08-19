@@ -1,0 +1,277 @@
+/* Dedicated reading mode for BOOX Palma 2. */
+.palma-mode-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-top: 16px;
+}
+
+.palma-mode-toggle {
+  min-height: 36px;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.palma-reader-hint {
+  display: none;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+html[data-display-mode="palma2"] {
+  --bg: #ffffff;
+  --text: #111111;
+  --body: #252525;
+  --muted: #4a4a4a;
+  --faint: #666666;
+  --line: #b8b8b8;
+  --line-soft: #d4d4d4;
+  --link: #111111;
+  scroll-behavior: auto;
+}
+
+html[data-display-mode="palma2"] *,
+html[data-display-mode="palma2"] *::before,
+html[data-display-mode="palma2"] *::after {
+  animation: none !important;
+  transition: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+html[data-display-mode="palma2"] body {
+  background: #ffffff;
+  color: var(--text);
+  line-height: 1.68;
+  touch-action: pan-y pinch-zoom;
+  -webkit-font-smoothing: auto;
+}
+
+html[data-display-mode="palma2"] a,
+html[data-display-mode="palma2"] a:hover {
+  color: var(--text);
+  text-decoration-color: #555555;
+}
+
+html[data-display-mode="palma2"] .navbar {
+  position: static;
+  border-bottom: 1px solid var(--line);
+}
+
+html[data-display-mode="palma2"] .navbar-inner {
+  width: auto;
+  max-width: none;
+  height: 52px;
+  margin: 0;
+  padding: 0 18px;
+  gap: 14px;
+}
+
+html[data-display-mode="palma2"] .navbar-links {
+  gap: 14px;
+  font-size: 13px;
+}
+
+html[data-display-mode="palma2"] .navbar-links a:nth-child(n+3) {
+  display: none;
+}
+
+html[data-display-mode="palma2"] .brand-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 0;
+  background: #ffffff;
+  border-color: #777777;
+  color: #111111;
+}
+
+html[data-display-mode="palma2"] .brand-name {
+  font-size: 14px;
+}
+
+html[data-display-mode="palma2"] .shell {
+  display: block;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0 18px 48px;
+}
+
+html[data-display-mode="palma2"] .shell > main {
+  padding-top: 24px;
+}
+
+html[data-display-mode="palma2"] .toc {
+  display: none !important;
+}
+
+html[data-display-mode="palma2"] .digest-date {
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+html[data-display-mode="palma2"] .digest h1 {
+  font-size: 27px;
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+}
+
+html[data-display-mode="palma2"] .digest-lede {
+  margin-top: 7px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+html[data-display-mode="palma2"] .palma-mode-row {
+  margin-top: 14px;
+}
+
+html[data-display-mode="palma2"] .palma-mode-toggle {
+  min-height: 40px;
+  padding: 6px 10px;
+  border-color: #777777;
+  background: #ffffff;
+  font-size: 13px;
+}
+
+html[data-display-mode="palma2"] .palma-reader-hint {
+  display: inline;
+}
+
+html[data-display-mode="palma2"] .prose {
+  margin-top: 24px;
+}
+
+html[data-display-mode="palma2"] .prose > p,
+html[data-display-mode="palma2"] .prose .digest-note {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+html[data-display-mode="palma2"] .digest-category-nav {
+  gap: 8px 14px;
+  margin-top: 24px;
+  padding: 12px 0;
+  border-color: var(--line);
+  font-size: 13px;
+}
+
+html[data-display-mode="palma2"] .prose .digest-list {
+  scroll-margin-top: 0;
+}
+
+html[data-display-mode="palma2"] .prose .digest-list > .digest-item {
+  padding: 22px 0 24px 34px;
+  border-bottom-color: var(--line-soft);
+  font-size: 16px;
+  line-height: 1.72;
+  scroll-margin-top: 0;
+}
+
+html[data-display-mode="palma2"] .prose .digest-list > .digest-item::before {
+  left: 0;
+  top: 23px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #333333;
+}
+
+html[data-display-mode="palma2"] .prose .digest-item-title {
+  margin-bottom: 7px;
+  font-size: 18.5px;
+  line-height: 1.48;
+  font-weight: 650;
+}
+
+html[data-display-mode="palma2"] .prose .digest-list > .digest-item .digest-title-link {
+  text-decoration: none;
+}
+
+html[data-display-mode="palma2"] .prose .digest-list > .digest-item .digest-source,
+html[data-display-mode="palma2"] .prose .digest-list > .digest-item .digest-hn {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+html[data-display-mode="palma2"] .prose h2 {
+  margin-top: 44px;
+  padding-bottom: 7px;
+  font-size: 23px;
+  scroll-margin-top: 0;
+}
+
+html[data-display-mode="palma2"] .prose h3,
+html[data-display-mode="palma2"] .prose .category-heading {
+  margin-top: 32px;
+  font-size: 18px;
+  scroll-margin-top: 0;
+}
+
+html[data-display-mode="palma2"] .prose .category-list {
+  gap: 18px;
+}
+
+html[data-display-mode="palma2"] .prose .category-list > .category-item {
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 0 8px;
+  font-size: 15.5px;
+  line-height: 1.68;
+}
+
+html[data-display-mode="palma2"] .category-title {
+  font-weight: 650;
+}
+
+html[data-display-mode="palma2"] .category-meta,
+html[data-display-mode="palma2"] .category-ref,
+html[data-display-mode="palma2"] .category-count {
+  color: var(--muted);
+}
+
+html[data-display-mode="palma2"] .pager {
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top-color: var(--line);
+  gap: 8px;
+  font-size: 13px;
+}
+
+html[data-display-mode="palma2"] .pager a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+html[data-display-mode="palma2"] .site-footer {
+  border-top-color: var(--line);
+}
+
+html[data-display-mode="palma2"] .site-footer-inner {
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 18px 18px 30px;
+  font-size: 12px;
+}
+
+@media (max-width: 430px) {
+  html[data-display-mode="palma2"] .navbar-inner,
+  html[data-display-mode="palma2"] .shell,
+  html[data-display-mode="palma2"] .site-footer-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  html[data-display-mode="palma2"] .brand-name {
+    display: none;
+  }
+}
