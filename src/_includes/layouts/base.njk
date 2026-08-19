@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{% if hasToc %}<script>(function(){try{var p=new URLSearchParams(location.search);var q=p.get('mode');var s=localStorage.getItem('hn-digest-display-mode');document.documentElement.dataset.displayMode=(q==='palma2'||(q!=='standard'&&s==='palma2'))?'palma2':'standard';}catch(e){}})();</script>{% endif %}
 <title>{% if title %}{{ title }} · {% endif %}HN 中文摘要</title>
 {% if description %}<meta name="description" content="{{ description }}">{% endif %}
 <link rel="icon" type="image/png" sizes="64x64" href="{{ '/assets/favicon.png' | url }}">
