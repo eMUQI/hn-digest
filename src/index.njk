@@ -6,10 +6,15 @@ eleventyExcludeFromCollections: true
 ---
 {% set latest = collections.digest | last %}
 {% if latest %}
+{% set previous = collections.digest[collections.digest.length - 2] if collections.digest.length > 1 else null %}
 <article class="digest">
   <p class="digest-date">{{ latest.date | dateCN }}</p>
   <h1>{{ latest.data.title }}</h1>
   <p class="digest-lede">共 30 条，含中文摘要、原文与讨论链接</p>
+  <div class="palma-mode-row">
+    <button class="palma-mode-toggle" type="button" data-palma-toggle aria-pressed="false">Palma 2 模式</button>
+    <span class="palma-reader-hint">轻点屏幕左右侧切换前后一期，也可直接上下滑动</span>
+  </div>
 
   <div class="prose">
     {{ latest.templateContent | enhanceDigest | safe }}
@@ -17,9 +22,9 @@ eleventyExcludeFromCollections: true
 </article>
 
 <nav class="pager">
+  {% if previous %}<a href="{{ previous.url | url }}" data-palma-nav="previous">← 前一期</a>{% else %}<span></span>{% endif %}
   <a href="{{ latest.url | url }}">本期固定链接</a>
   <a class="muted" href="{{ '/archive/' | url }}">全部归档</a>
-  <a href="{{ '/feed.xml' | url }}">RSS</a>
 </nav>
 {% else %}
 <article class="digest">
