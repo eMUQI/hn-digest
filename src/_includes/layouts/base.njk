@@ -10,8 +10,7 @@
 <link rel="stylesheet" href="{{ '/assets/style.css' | url }}?v=20260819-v3">
 <link rel="stylesheet" href="{{ '/assets/layout-fixes.css' | url }}?v=20260819-v1">
 {% if hasToc %}<link rel="stylesheet" href="{{ '/assets/digest.css' | url }}?v=20260819-v3">{% endif %}
-<link rel="stylesheet" href="{{ '/assets/eink.css' | url }}?v=20260819-v1">
-{% if hasToc %}<link rel="stylesheet" href="{{ '/assets/palma2.css' | url }}?v=20260819-v1">{% endif %}
+{% if hasToc %}<link rel="stylesheet" href="{{ '/assets/palma2.css' | url }}?v=20260819-v2">{% endif %}
 <link rel="alternate" type="application/rss+xml" title="HN 中文摘要" href="{{ '/feed.xml' | url }}">
 </head>
 <body>
@@ -28,6 +27,6 @@
   {% if hasToc %}<aside class="toc" id="toc" hidden><p class="toc-title">本页目录</p><nav class="toc-links"></nav></aside>{% endif %}
 </div>
 <footer class="site-footer"><div class="site-footer-inner"><span>内容每日自动生成，Markdown 存档于 content/daily/</span><span class="footer-links"><a href="{{ '/about/' | url }}">关于</a><a href="{{ '/feed.xml' | url }}">RSS</a></span></div></footer>
-{% if hasToc %}<script src="{{ '/assets/digest.js' | url }}?v=20260819-v3" defer></script><script src="{{ '/assets/toc.js' | url }}?v=20260819-v3" defer></script><script type="module" src="{{ '/assets/palma2.js' | url }}?v=20260819-v1"></script>{% endif %}
+{% if hasToc %}<script src="{{ '/assets/digest.js' | url }}?v=20260819-v3" defer></script><script src="{{ '/assets/toc.js' | url }}?v=20260819-v3" defer></script><script type="module" src="{{ '/assets/palma2.js' | url }}?v=20260819-v2"></script>{% endif %}
 </body>
 </html>
