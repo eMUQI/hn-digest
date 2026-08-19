@@ -1,0 +1,97 @@
+/* E-ink readability overrides from the design handoff. */
+:root {
+  --bg: #ffffff;
+  --text: #1b1b1b;
+  --body: #3d3d3d;
+  --muted: #4a4a4a;
+  --faint: #5a5a5a;
+  --line: #d8d8d8;
+  --line-soft: #d8d8d8;
+  --link: #2f6f9f;
+}
+
+a {
+  text-decoration-color: #9a9a9a;
+}
+a:hover {
+  text-decoration-color: var(--link);
+}
+
+.navbar {
+  border-bottom-color: var(--line);
+}
+.brand-mark {
+  background: #eeeeee;
+  border-color: #b0b0b0;
+  color: #4a4a4a;
+}
+
+.toc-title,
+.category-count,
+.category-meta,
+.category-ref,
+.digest-date,
+.digest-lede,
+.site-footer-inner {
+  color: #5a5a5a;
+}
+.toc-links {
+  border-left-color: var(--line);
+}
+.toc-links a { color: #3d3d3d; }
+.toc-links a.toc-sub { color: #4a4a4a; }
+
+.prose > p:first-child,
+.prose .digest-note {
+  color: #4a4a4a;
+  border-left-color: #b0b0b0;
+}
+
+.prose .digest-list > .digest-item {
+  border-bottom-color: var(--line);
+}
+.prose .digest-list > .digest-item::before {
+  color: #1b1b1b;
+  font-size: 15px;
+  font-weight: 700;
+}
+.prose .digest-list > .digest-item .digest-source,
+.prose .digest-list > .digest-item .digest-hn {
+  color: #5a5a5a;
+}
+
+.digest-category-nav {
+  border-top-color: var(--line);
+  border-bottom-color: var(--line);
+}
+.digest-category-nav > span { color: #5a5a5a; }
+
+.prose .category-heading {
+  border-bottom-color: #1b1b1b;
+}
+.category-ref {
+  color: #5a5a5a;
+  font-weight: 700;
+}
+.category-meta a { color: #5a5a5a; }
+
+.archive-month,
+.facts,
+.facts li,
+.pager,
+.site-footer {
+  border-color: var(--line);
+}
+.facts li span:first-child,
+.notes li::before {
+  color: #4a4a4a;
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --muted: #3d3d3d;
+    --faint: #4a4a4a;
+    --line: #c8c8c8;
+    --line-soft: #c8c8c8;
+  }
+}

@@ -9,12 +9,13 @@
 <link rel="stylesheet" href="{{ '/assets/style.css' | url }}?v=20260819-v3">
 <link rel="stylesheet" href="{{ '/assets/layout-fixes.css' | url }}?v=20260819-v1">
 {% if hasToc %}<link rel="stylesheet" href="{{ '/assets/digest.css' | url }}?v=20260819-v3">{% endif %}
+<link rel="stylesheet" href="{{ '/assets/eink.css' | url }}?v=20260819-v1">
 <link rel="alternate" type="application/rss+xml" title="HN 中文摘要" href="{{ '/feed.xml' | url }}">
 </head>
 <body>
 <header class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="{{ '/' | url }}"><span class="brand-mark"><img src="{{ '/assets/hn-brand.png' | url }}" alt="" width="32" height="32" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:50%"></span><span class="brand-name">HN 中文摘要</span></a>
+    <a class="brand" href="{{ '/' | url }}"><span class="brand-mark">HN</span><span class="brand-name">HN 中文摘要</span></a>
     <nav class="navbar-links">
       <a href="{{ '/' | url }}">今日</a><a href="{{ '/archive/' | url }}">归档</a><a href="{{ '/about/' | url }}">关于</a><a href="{{ '/feed.xml' | url }}" class="muted">RSS</a><a href="https://github.com/eMUQI/hn-digest" class="muted">GitHub</a>
     </nav>
