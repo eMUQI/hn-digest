@@ -1,14 +1,10 @@
-import { classifyTap, resolveMode, shouldIgnoreTarget } from './palma2-core.js';
+import { classifyTap, pageTurnDistance, resolveMode, shouldIgnoreTarget } from './palma2-core.js?v=20260819-v2';
 
 (function () {
   const STORAGE_KEY = 'hn-digest-display-mode';
   const root = document.documentElement;
   const toggle = document.querySelector('[data-palma-toggle]');
-  const pager = document.querySelector('.pager');
-  if (!toggle || !pager) return;
-
-  const previous = pager.querySelector('[data-palma-nav="previous"]');
-  const next = pager.querySelector('[data-palma-nav="next"]');
+  if (!toggle) return;
 
   function readStoredMode() {
     try { return window.localStorage.getItem(STORAGE_KEY) || ''; }
@@ -50,8 +46,7 @@ import { classifyTap, resolveMode, shouldIgnoreTarget } from './palma2-core.js';
     pointer = {
       id: event.pointerId,
       startX: event.clientX,
-      startY: event.clientY,
-      target: event.target
+      startY: event.clientY
     };
   }, { passive: true });
 
@@ -70,8 +65,14 @@ import { classifyTap, resolveMode, shouldIgnoreTarget } from './palma2-core.js';
     });
     pointer = null;
 
-    const destination = direction === 'previous' ? previous : direction === 'next' ? next : null;
-    if (destination && destination.href) window.location.assign(destination.href);
+    const step = pageTurnDistance(window.innerHeight);
+    if (!step) return;
+
+    if (direction === 'screen-up') {
+      window.scrollBy({ top: -step, left: 0, behavior: 'auto' });
+    } else if (direction === 'screen-down') {
+      window.scrollBy({ top: step, left: 0, behavior: 'auto' });
+    }
   }, { passive: true });
 
   document.addEventListener('pointercancel', function () {

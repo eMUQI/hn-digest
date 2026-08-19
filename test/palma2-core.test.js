@@ -9,14 +9,14 @@ async function loadCore() {
   }
 }
 
-test('left edge tap navigates to previous issue', async () => {
+test('left edge tap requests previous screen', async () => {
   const { classifyTap } = await loadCore();
-  assert.equal(classifyTap({ startX: 40, endX: 43, startY: 300, endY: 303, width: 400 }), 'previous');
+  assert.equal(classifyTap({ startX: 40, endX: 43, startY: 300, endY: 303, width: 400 }), 'screen-up');
 });
 
-test('right edge tap navigates to next issue', async () => {
+test('right edge tap requests next screen', async () => {
   const { classifyTap } = await loadCore();
-  assert.equal(classifyTap({ startX: 360, endX: 356, startY: 300, endY: 302, width: 400 }), 'next');
+  assert.equal(classifyTap({ startX: 360, endX: 356, startY: 300, endY: 302, width: 400 }), 'screen-down');
 });
 
 test('middle tap does not navigate', async () => {
