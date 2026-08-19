@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "eleventy",
-    "serve": "eleventy --serve"
+    "serve": "eleventy --serve",
+    "test": "node --test"
   },
   "dependencies": {
     "markdown-it": "^14.1.0"
