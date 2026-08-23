@@ -6,8 +6,8 @@
 {% if hasToc %}<script>(function(){try{var p=new URLSearchParams(location.search);var q=p.get('mode');var s=localStorage.getItem('hn-digest-display-mode');document.documentElement.dataset.displayMode=(q==='palma2'||(q!=='standard'&&s==='palma2'))?'palma2':'standard';}catch(e){}})();</script>{% endif %}
 <title>{% if title %}{{ title }} · {% endif %}HN 中文摘要</title>
 {% if description %}<meta name="description" content="{{ description }}">{% endif %}
-<link rel="icon" type="image/png" sizes="64x64" href="{{ '/assets/favicon.png' | url }}">
-<link rel="stylesheet" href="{{ '/assets/style.css' | url }}?v=20260819-v3">
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/brand-mark.svg' | url }}">
+<link rel="stylesheet" href="{{ '/assets/style.css' | url }}?v=20260823-v1">
 <link rel="stylesheet" href="{{ '/assets/layout-fixes.css' | url }}?v=20260819-v1">
 {% if hasToc %}<link rel="stylesheet" href="{{ '/assets/digest.css' | url }}?v=20260819-v3">{% endif %}
 {% if hasToc %}<link rel="stylesheet" href="{{ '/assets/palma2.css' | url }}?v=20260819-v2">{% endif %}
@@ -16,7 +16,7 @@
 <body>
 <header class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="{{ '/' | url }}"><span class="brand-mark">HN</span><span class="brand-name">HN 中文摘要</span></a>
+    <a class="brand" href="{{ '/' | url }}"><img class="brand-mark" src="{{ '/assets/brand-mark.svg' | url }}" alt="" width="32" height="32"><span class="brand-name">HN 中文摘要</span></a>
     <nav class="navbar-links">
       <a href="{{ '/' | url }}">今日</a><a href="{{ '/archive/' | url }}">归档</a><a href="{{ '/about/' | url }}">关于</a><a href="{{ '/feed.xml' | url }}" class="muted">RSS</a><a href="https://github.com/eMUQI/hn-digest" class="muted">GitHub</a>
     </nav>
