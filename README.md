@@ -1,6 +1,8 @@
 # hn-digest
 
-Hacker News 中文早报。内容由 Markdown 保存，Eleventy 构建为静态网站并通过 GitHub Pages 发布。
+Hacker News 中文早报。每日按照 Hacker News 首页榜单整理前 30 条，阅读条目所链接的原始文章并生成中文摘要，同时保留原文与 Hacker News 讨论链接。内容由 Markdown 保存，Eleventy 构建为静态网站并通过 GitHub Pages 发布。
+
+本项目为独立的非官方项目，与 Hacker News 或 Y Combinator 无隶属、合作或授权关系。原文章的版权归相应作者或权利人所有。
 
 ## 内容结构
 
