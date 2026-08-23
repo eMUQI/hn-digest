@@ -1,4 +1,4 @@
-/* Dedicated reading mode for BOOX Palma 2. */
+/* Dedicated reading mode for e-ink devices. */
 .palma-mode-row {
   display: flex;
   flex-wrap: wrap;
@@ -86,10 +86,16 @@ html[data-display-mode="palma2"] .navbar-links a:nth-child(n+3) {
 html[data-display-mode="palma2"] .brand-mark {
   width: 28px;
   height: 28px;
+  border: 0;
   border-radius: 0;
-  background: #ffffff;
-  border-color: #777777;
-  color: #111111;
+  background: transparent;
+}
+
+html[data-display-mode="palma2"] .brand-mark img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: grayscale(1) contrast(1.08);
 }
 
 html[data-display-mode="palma2"] .brand-name {
