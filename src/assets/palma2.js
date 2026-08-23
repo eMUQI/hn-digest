@@ -21,7 +21,7 @@ import { classifyTap, pageTurnDistance, resolveMode, shouldIgnoreTarget } from '
   function renderMode() {
     root.dataset.displayMode = enabled ? 'palma2' : 'standard';
     toggle.setAttribute('aria-pressed', String(enabled));
-    toggle.textContent = enabled ? '退出 Palma 2' : 'Palma 2 模式';
+    toggle.textContent = enabled ? '退出墨水屏模式' : '墨水屏模式';
   }
 
   renderMode();
