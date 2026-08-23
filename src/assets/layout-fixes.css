@@ -16,6 +16,17 @@
 .pager a { text-decoration: none; }
 .pager a:hover { text-decoration: underline; text-decoration-color: var(--link); }
 
+/* Brand icon: keep the generated mark crisp and unframed in the navbar. */
+.brand-mark {
+  width: 32px;
+  height: 32px;
+  display: block;
+  flex: none;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
 .site-footer { margin-top: 0; border-top: 1px solid var(--line); }
 .site-footer-inner {
   width: calc(100% - 40px);
