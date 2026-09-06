@@ -138,6 +138,15 @@ a.muted { color: var(--muted); }
   .toc { display: none; }
 }
 
+/* Tablet and large e-ink readers: use the available page width and a slightly larger reading scale. */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .shell { grid-template-columns: minmax(0, 1fr); }
+  .shell > main { padding-top: 44px; }
+  .digest h1, .page h1 { font-size: 32px; }
+  .prose .digest-list > .digest-item { font-size: 16px; }
+  .prose .digest-list > .digest-item::before { font-size: 13.5px; }
+}
+
 @media (max-width: 640px) {
   .navbar-links { gap: 14px; font-size: 13px; }
   .navbar-links a:nth-last-child(-n+2) { display: none; }
