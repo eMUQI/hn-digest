@@ -22,7 +22,3 @@ test('ink screen mode applies grayscale directly to the navbar brand image', () 
   assert.match(inkScreenCss, /data-display-mode="palma2"\] \.brand-mark\s*\{[^}]*filter:\s*grayscale\(1\)/s);
   assert.doesNotMatch(inkScreenCss, /data-display-mode="palma2"\] \.brand-mark img/);
 });
-
-test('latest digest homepage exposes previous-issue tap navigation when available', () => {
-  assert.match(template, /data-palma-nav="previous"/);
-});

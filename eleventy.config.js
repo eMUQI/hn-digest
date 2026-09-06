@@ -23,6 +23,7 @@ function enhanceDigestHtml(html) {
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.ignores.add("README*.md");
 
   eleventyConfig.setLibrary("md", markdownIt({ html: true, linkify: true, typographer: false, breaks: true }));
   eleventyConfig.addFilter("enhanceDigest", enhanceDigestHtml);
@@ -40,7 +41,6 @@ export default function (eleventyConfig) {
     return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
   });
   eleventyConfig.addFilter("dayLabel", (value) => String(utc(value).getUTCDate()).padStart(2, "0"));
-  eleventyConfig.addFilter("newestFirst", (items) => [...items].reverse());
   eleventyConfig.addFilter("byMonth", (items) => {
     const groups = new Map();
     for (const item of [...items].reverse()) {
