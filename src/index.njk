@@ -18,12 +18,12 @@ description: 每日 Hacker News 官方首页前 30 条的中文摘要与分类�
   </div>
 
   <div class="prose">
-    {{ latest.templateContent | enhanceDigest | safe }}
+    {{ latest.templateContent | safe }}
   </div>
 </article>
 
 <nav class="pager">
-  {% if previous %}<a href="{{ previous.url | url }}" data-palma-nav="previous">← 前一期</a>{% else %}<span></span>{% endif %}
+  {% if previous %}<a href="{{ previous.url | url }}">← 前一期</a>{% else %}<span></span>{% endif %}
   <a href="{{ latest.url | url }}">本期固定链接</a>
   <a class="muted" href="{{ '/archive/' | url }}">全部归档</a>
 </nav>
