@@ -1,0 +1,36 @@
+<!--
+  Source artwork for src/assets/og-image.png (the 1200x630 social preview card).
+
+  The card lives in the middle 1200x630 band of a 1200x1200 canvas so that
+  qlmanage renders it 1:1 instead of scaling to fit a square thumbnail.
+
+  Regenerate with:
+    qlmanage -t -s 1200 -o /tmp/og tools/og-card.svg
+    sips -c 630 1200 /tmp/og/og-card.svg.png --out /tmp/og/card.png
+
+  Then flatten to an opaque truecolour PNG and write src/assets/og-image.png.
+  test/social-image-asset.test.js verifies the result is a valid 1200x630 PNG.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <g transform="translate(0,285)">
+    <rect width="1200" height="630" fill="#f8f7f3"/>
+    <rect x="0" y="0" width="1200" height="8" fill="#b96a4f"/>
+
+    <!-- brand mark, scaled from the 64px brand-mark.svg viewBox -->
+    <g transform="translate(96,164) scale(4.6)">
+      <rect x="8" y="6" width="48" height="52" rx="12" fill="#ffffff" stroke="#e0dcd3" stroke-width="1"/>
+      <path d="M44 6h0l12 12v8L44 14z" fill="#ded9d0"/>
+      <text x="32" y="35" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#23282d">HN</text>
+      <rect x="18" y="41" width="28" height="3" rx="1.5" fill="#b96a4f"/>
+      <rect x="21" y="47" width="22" height="2.5" rx="1.25" fill="#a8acb0"/>
+    </g>
+
+    <g font-family="PingFang SC, Hiragino Sans GB, Helvetica Neue, Helvetica, Arial, sans-serif">
+      <text x="452" y="228" font-size="88" font-weight="600" fill="#23282d">HN 中文摘要</text>
+      <text x="456" y="304" font-size="38" fill="#5a5f63">每日 Hacker News 首页前 30 条</text>
+      <text x="456" y="362" font-size="34" fill="#767676">中文摘要 · 分类整理 · 原文与讨论链接</text>
+      <rect x="456" y="408" width="72" height="3" fill="#b96a4f"/>
+      <text x="456" y="476" font-size="30" fill="#8b8f93">emuqi.github.io/hn-digest</text>
+    </g>
+  </g>
+</svg>

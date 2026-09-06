@@ -29,6 +29,7 @@ export default function (eleventyConfig) {
 
   const utc = (value) => new Date(value);
   eleventyConfig.addFilter("dateISO", (value) => utc(value).toISOString().slice(0, 10));
+  eleventyConfig.addFilter("dateISOFull", (value) => utc(value).toISOString());
   eleventyConfig.addFilter("dateCN", (value) => {
     const d = utc(value);
     return `${d.getUTCFullYear()} 年 ${d.getUTCMonth() + 1} 月 ${d.getUTCDate()} 日`;
