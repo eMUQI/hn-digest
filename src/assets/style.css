@@ -42,6 +42,7 @@ a.muted { color: var(--muted); }
 .brand-name { font-size: 16px; font-weight: 700; letter-spacing: -.01em; white-space: nowrap; }
 .navbar-links { display: flex; align-items: center; gap: 20px; font-size: 14px; flex: none; }
 .navbar-links a { text-decoration: none; }
+.navbar-links a.muted { color: #555; }
 
 /* shell */
 .shell {
