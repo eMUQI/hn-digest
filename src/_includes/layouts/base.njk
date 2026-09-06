@@ -8,7 +8,7 @@
 {% if description %}{% set metaDescription = description %}{% else %}{% set metaDescription = "每日 Hacker News 官方首页前 30 条的中文摘要与分类整理。" %}{% endif %}
 {% if ogType %}{% set metaType = ogType %}{% else %}{% set metaType = "website" %}{% endif %}
 {% set canonicalUrl = "https://emuqi.github.io" + (page.url | url) %}
-{% set socialImage = "https://emuqi.github.io/hn-digest/assets/og-image.png" %}
+{% set socialImage = "https://emuqi.github.io/hn-digest/assets/brand-mark.png" %}
 <title>{{ metaTitle }}</title>
 <meta name="description" content="{{ metaDescription }}">
 <link rel="canonical" href="{{ canonicalUrl }}">
@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="HN 中文摘要">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="{{ socialImage }}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="HN 中文摘要">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="HN 中文摘要 Logo">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{{ metaTitle }}">
 <meta name="twitter:description" content="{{ metaDescription }}">
 <meta name="twitter:image" content="{{ socialImage }}">

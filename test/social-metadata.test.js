@@ -16,13 +16,13 @@ test('base layout exposes canonical and Open Graph metadata', () => {
 });
 
 test('base layout exposes Twitter Card metadata', () => {
-  assert.match(base, /name="twitter:card" content="summary_large_image"/);
+  assert.match(base, /name="twitter:card" content="summary"/);
   assert.match(base, /name="twitter:title"/);
   assert.match(base, /name="twitter:description"/);
   assert.match(base, /name="twitter:image"/);
 });
 
-test('social metadata uses absolute public URLs and the default PNG preview image', () => {
+test('social metadata uses absolute public URLs and the site logo PNG', () => {
   assert.match(base, /https:\/\/emuqi\.github\.io\/hn-digest\//);
-  assert.match(base, /\/assets\/og-image\.png/);
+  assert.match(base, /\/assets\/brand-mark\.png/);
 });
