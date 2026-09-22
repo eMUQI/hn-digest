@@ -61,7 +61,8 @@ import { classifyTap, pageTurnDistance, resolveMode, shouldIgnoreTarget } from '
       endX: event.clientX,
       startY: pointer.startY,
       endY: event.clientY,
-      width: window.innerWidth
+      width: window.innerWidth,
+      height: window.innerHeight
     });
     pointer = null;
 

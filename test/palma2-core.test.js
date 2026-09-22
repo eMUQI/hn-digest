@@ -2,24 +2,30 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { classifyTap, pageTurnDistance, resolveMode, shouldIgnoreTarget } from '../src/assets/palma2-core.js';
 
-test('left edge tap requests previous screen', () => {
-  assert.equal(classifyTap({ startX: 40, endX: 43, startY: 300, endY: 303, width: 400 }), 'screen-up');
+test('upper left edge tap requests previous screen', () => {
+  assert.equal(classifyTap({ startX: 40, endX: 43, startY: 300, endY: 303, width: 400, height: 800 }), 'screen-up');
+});
+
+test('lower left edge tap requests next screen from the vertical midpoint', () => {
+  for (const y of [399, 400, 650]) {
+    assert.equal(classifyTap({ startX: 40, endX: 43, startY: y, endY: y + 3, width: 400, height: 800 }), y < 400 ? 'screen-up' : 'screen-down');
+  }
 });
 
 test('right edge tap requests next screen', () => {
-  assert.equal(classifyTap({ startX: 360, endX: 356, startY: 300, endY: 302, width: 400 }), 'screen-down');
+  assert.equal(classifyTap({ startX: 360, endX: 356, startY: 300, endY: 302, width: 400, height: 800 }), 'screen-down');
 });
 
 test('middle tap does not navigate', () => {
-  assert.equal(classifyTap({ startX: 200, endX: 201, startY: 300, endY: 301, width: 400 }), null);
+  assert.equal(classifyTap({ startX: 200, endX: 201, startY: 300, endY: 301, width: 400, height: 800 }), null);
 });
 
 test('vertical swipe does not trigger page navigation', () => {
-  assert.equal(classifyTap({ startX: 35, endX: 39, startY: 200, endY: 275, width: 400 }), null);
+  assert.equal(classifyTap({ startX: 35, endX: 39, startY: 200, endY: 275, width: 400, height: 800 }), null);
 });
 
 test('large horizontal movement does not count as a tap', () => {
-  assert.equal(classifyTap({ startX: 30, endX: 110, startY: 200, endY: 204, width: 400 }), null);
+  assert.equal(classifyTap({ startX: 30, endX: 110, startY: 200, endY: 204, width: 400, height: 800 }), null);
 });
 
 test('page turn uses 88 percent of viewport height', () => {

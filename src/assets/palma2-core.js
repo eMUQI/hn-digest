@@ -1,13 +1,13 @@
 const INTERACTIVE_SELECTOR = 'a, button, input, textarea, select, summary, [contenteditable="true"], [role="button"]';
 
-export function classifyTap({ startX, endX, startY, endY, width, edgeRatio = 0.25, maxMovement = 18 }) {
-  if (!Number.isFinite(width) || width <= 0) return null;
+export function classifyTap({ startX, endX, startY, endY, width, height, edgeRatio = 0.25, maxMovement = 18 }) {
+  if (!Number.isFinite(width) || width <= 0 || !Number.isFinite(height) || height <= 0) return null;
 
   const dx = Math.abs(endX - startX);
   const dy = Math.abs(endY - startY);
   if (dx > maxMovement || dy > maxMovement) return null;
 
-  if (startX <= width * edgeRatio) return 'screen-up';
+  if (startX <= width * edgeRatio) return startY < height / 2 ? 'screen-up' : 'screen-down';
   if (startX >= width * (1 - edgeRatio)) return 'screen-down';
   return null;
 }
